@@ -1,0 +1,14 @@
+@import "reset";
+@import "components/Cities/city";
+@import "./color";
+@import "components/slider";
+
+.app {
+  min-height: 100vh;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
