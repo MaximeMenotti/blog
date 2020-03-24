@@ -13,6 +13,7 @@ function Slider({
 
   function displayNext() {
     const newCurrentSlide = (currentSlide + slidesToScroll) % children.length;
+    console.log(newCurrentSlide)
     setCurrentSlide(newCurrentSlide)
   }
 
@@ -62,6 +63,14 @@ function Slider({
     document.addEventListener('keydown', keyPressHandler);
     return () => {
       document.removeEventListener('keydown', keyPressHandler);
+    };
+  });
+
+
+  useEffect(() => {
+    const interval = setInterval(displayNext, 5000);
+    return () => {
+      clearInterval(interval);
     };
   });
 
