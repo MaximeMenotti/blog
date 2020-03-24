@@ -5,7 +5,7 @@ function City({ city }) {
     <div className='card'>
       <h3 className='title'>{city.name}</h3>
       <div className='image-container'>
-        <img className='teaser' src={process.env.REACT_APP_BACKEND_URL + city.teaser.url} alt='image'/>
+        <img className='teaser' src={process.env.REACT_APP_BACKEND_URL + city.teaser.url} alt='image' draggable={false}/>
       </div>
     </div>
   );

@@ -6,13 +6,11 @@ import Cities from '../components/Cities/Cities'
 
 function Home() {
   return (
-    <div className="cities-container">
-      <Query query={CITIES_QUERY}>
-        {({ data: { cities } }) => {
-          return <Cities cities={cities} />;
-        }}
-      </Query>
-    </div>
+    <Query query={CITIES_QUERY}>
+      {({ data: { cities } }) => {
+        return <Cities cities={cities} />;
+      }}
+    </Query>
   );
 };
 

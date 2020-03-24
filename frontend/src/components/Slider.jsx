@@ -1,45 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Swipeable } from 'react-swipeable'
+import City from './Cities/City'
 
 function Slider({
   slidesToShow = 2,
-  slidesToScroll = 1
+  slidesToScroll = 1,
+  children
 }) {
-  const slides = [
-    <p>Slide 1</p>,
-    <p>Slide 2</p>,
-    <p>Slide 3</p>,
-    <p>Slide 4</p>,
-    <p>Slide 5</p>,
-    <p>Slide 6</p>,
-  ];
   const [currentSlide, setCurrentSlide] = useState(0)
-  const ratio = slides.length / slidesToShow
-  const translateX = currentSlide * -100 / slides.length
+  const ratio = children.length / slidesToShow
+  const translateX = currentSlide * -100 / children.length
 
   function displayNext() {
-    const newCurrentSlide = (currentSlide + slidesToScroll) % slides.length;
+    const newCurrentSlide = (currentSlide + slidesToScroll) % children.length;
     setCurrentSlide(newCurrentSlide)
   }
 
   function displayPrevious() {
     let newCurrentSlide = (currentSlide - slidesToScroll);
     if (newCurrentSlide < 0) {
-      newCurrentSlide = slides.length - slidesToScroll
+      newCurrentSlide = children.length - slidesToScroll
     }
     setCurrentSlide(newCurrentSlide)
   }
 
-  const items = slides.map((child, index) => {
+  const items = children.map((child, index) => {
     let slideClassName;
 
     switch (index) {
       case currentSlide:
         slideClassName = 'slide active'
         break;
-      case (currentSlide + slidesToScroll) % slides.length:
-        slideClassName = 'slide next-active'
-        break;
+      case (currentSlide + slidesToScroll) % children.length:
+        if(currentSlide < (children.length -1)) {
+          slideClassName = 'slide next-active'
+          break;
+        }
       default:
         slideClassName = 'slide'
     }
@@ -47,25 +43,50 @@ function Slider({
     const slideRatio = (100 / slidesToShow) / ratio
     return (
       <div key={index} className={slideClassName} style={{ width: `${slideRatio}%` }}>
-        {child}
+        <City city={child}/>
       </div>
     );
   })
+
+  const keyPressHandler = (e) => {
+    if (e.keyCode === 39) {
+      displayNext()
+      return
+    }
+    if (e.keyCode === 37) {
+      displayPrevious()
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', keyPressHandler);
+    return () => {
+      document.removeEventListener('keydown', keyPressHandler);
+    };
+  });
+
 
   const config = {
     trackMouse: true,
   }
 
+  const currentChildren = children[currentSlide]
   return (
-    <>
-      <Swipeable onSwipedLeft={() => {displayNext()}} onSwipedRight={() => {displayPrevious()}} {...config} >
-        <div className='slider' style={{ width: `${ratio * 100}%`, background: 'blue' }}>
-          <div className='slider-container' style={{ transform: `translate3d(${translateX}%, 0, 0)`, background: 'blue' }}>
-            {items}
+    <div className="main-container" style={{ backgroundImage: `url(${process.env.REACT_APP_BACKEND_URL + currentChildren.background.url})` }}>
+      <div className='text-container'>
+        <h2>{currentChildren.name}</h2>
+        <p className='description'>{currentChildren.description}</p>
+      </div>
+      <div className="slider-positioner">
+        <Swipeable onSwipedLeft={() => {displayNext()}} onSwipedRight={() => {displayPrevious()}} {...config} >
+          <div className='slider' style={{ width: `${ratio * 100}%`}}>
+            <div className='slider-container' style={{ transform: `translate3d(${translateX}%, 0, 0)`}}>
+              {items}
+            </div>
           </div>
-        </div>
-      </Swipeable>
-    </>
+        </Swipeable>
+      </div>
+    </div>
   )
 }
 
