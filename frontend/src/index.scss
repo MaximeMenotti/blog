@@ -1,7 +1,8 @@
 @import "reset";
-@import "components/Cities/city";
+@import "src/components/Cities/city";
 @import "./color";
-@import "components/slider";
+@import "src/components/Slider/slider";
+@import "src/components/Nav/dot-navigation";
 
 .app {
   min-height: 100vh;

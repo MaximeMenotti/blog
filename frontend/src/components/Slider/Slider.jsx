@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Swipeable } from 'react-swipeable'
-import City from './Cities/City'
-import useOnTick from '../hooks/useOnTick'
-import useOnKeyPress from '../hooks/useOnKeyPress'
+import City from '../Cities/City'
+import useOnTick from '../../hooks/useOnTick'
+import useOnKeyPress from '../../hooks/useOnKeyPress'
+import DotNavigation from '../Nav/DotNavigation'
 
 function Slider({
   slidesToShow = 2,
@@ -60,6 +61,7 @@ function Slider({
     <div
       className="main-container"
       style={{ backgroundImage: `url(${process.env.REACT_APP_BACKEND_URL + currentChildren.background.url})` }}>
+      <DotNavigation children={children} callback={setCurrentSlide} currentIndex={currentSlide} />
       <div className='text-container'>
         <h2>{currentChildren.name}</h2>
         <p className='description'>{currentChildren.description}</p>
