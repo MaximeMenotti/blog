@@ -24,6 +24,7 @@ $dot-color: rgba(255, 255, 255, 0.3);
   }
 
   .dot {
+    position: relative;
     width: $dot-width;
     height: $dot-width;
     transform: scale(0.4);
@@ -33,18 +34,43 @@ $dot-color: rgba(255, 255, 255, 0.3);
     user-select: none;
     line-height: $dot-width;
     text-align: center;
-    transition: transform 0.5s;
     z-index: 2;
+    transition: transform 0.5s;
+
+
+    &::before {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      content: "";
+      display: block;
+      width: $dot-width + 30px;
+      height: $dot-width + 30px;
+      background: white;
+      opacity: 0.3;
+      transform: scale(0);
+      z-index: -1;
+      border-radius: 50%;
+      transition: opacity 500ms, transform 500ms;
+    }
 
 
     &:hover {
       cursor: pointer;
+
+      &::before {
+        transform: scale(1);
+      }
     }
 
     &.active {
       color: white;
       transform: scale(1);
       text-shadow: black 1px 0 10px;
+
+      &::before {
+        opacity: 0;
+      }
     }
   }
 }
