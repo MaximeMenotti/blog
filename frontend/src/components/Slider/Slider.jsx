@@ -4,6 +4,7 @@ import City from '../Cities/City'
 import useOnTick from '../../hooks/useOnTick'
 import useOnKeyPress from '../../hooks/useOnKeyPress'
 import DotNavigation from '../Nav/DotNavigation'
+import { Link } from "react-router-dom";
 
 function Slider({
   slidesToShow = 2,
@@ -65,6 +66,11 @@ function Slider({
       <div className='text-container'>
         <h2>{currentChildren.name}</h2>
         <p className='description'>{currentChildren.description}</p>
+        <Link
+          to={`/city/${currentChildren.id}`}
+        >
+          <button className="explore">Explorer <i className="fa fa-paper-plane" aria-hidden="true"/></button>
+        </Link>
       </div>
       <div className="slider-positioner">
         <Swipeable

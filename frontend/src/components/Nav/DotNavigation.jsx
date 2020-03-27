@@ -9,8 +9,8 @@ function DotNavigation({
     <div className="nav-dots">
       {
         children.map((child, index) => {
-        const dotClassName = index === currentIndex ? 'dot active' : 'dot';
-        return <span className={dotClassName} onClick={() => callback(index)}>{index + 1}</span>
+          const dotClassName = index === currentIndex ? 'dot active' : 'dot';
+          return <span className={dotClassName} onClick={() => callback(index)}>{index + 1}</span>
         })
       }
     </div>
