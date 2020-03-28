@@ -1,30 +1,29 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Swipeable } from 'react-swipeable'
-import City from '../Cities/City'
 import useOnTick from '../../hooks/useOnTick'
 import useOnKeyPress from '../../hooks/useOnKeyPress'
-import DotNavigation from '../Nav/DotNavigation'
-import { Link } from "react-router-dom";
+import { SliderContext } from './SliderContext'
 
 function Slider({
   slidesToShow = 2,
   slidesToScroll = 1,
   children
 }) {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const {currentIndex, setCurrentIndex} = useContext(SliderContext)
+
   const ratio = children.length / slidesToShow
-  const translateX = currentSlide * -100 / children.length
+  const translateX = currentIndex * -100 / children.length
 
   function displayNext() {
-    const newCurrentSlide = (currentSlide + slidesToScroll) % children.length;
-    setCurrentSlide(newCurrentSlide)
+    const newCurrentIndex = (currentIndex + slidesToScroll) % children.length;
+    setCurrentIndex(newCurrentIndex)
   }
   function displayPrevious() {
-    let newCurrentSlide = (currentSlide - slidesToScroll);
-    if (newCurrentSlide < 0) {
-      newCurrentSlide = children.length - slidesToScroll
+    let newCurrentIndex = (currentIndex - slidesToScroll);
+    if (newCurrentIndex < 0) {
+      newCurrentIndex = children.length - slidesToScroll
     }
-    setCurrentSlide(newCurrentSlide)
+    setCurrentIndex(newCurrentIndex)
   }
 
   useOnKeyPress(displayNext, 39)
@@ -35,11 +34,11 @@ function Slider({
     let slideClassName;
 
     switch (index) {
-      case currentSlide:
+      case currentIndex:
         slideClassName = 'slide active'
         break;
-      case (currentSlide + slidesToScroll) % children.length:
-        if(currentSlide < (children.length -1)) {
+      case (currentIndex + slidesToScroll) % children.length:
+        if(currentIndex < (children.length - slidesToScroll)) {
           slideClassName = 'slide next-active'
           break;
         }
@@ -52,38 +51,23 @@ function Slider({
     const slideRatio = (100 / slidesToShow) / ratio
     return (
       <div key={index} className={slideClassName} style={{ width: `${slideRatio}%` }}>
-        <City city={child}/>
+        {child}
       </div>
     );
   })
 
-  const currentChildren = children[currentSlide]
   return (
-    <div
-      className="main-container"
-      style={{ backgroundImage: `url(${process.env.REACT_APP_BACKEND_URL + currentChildren.background.url})` }}>
-      <DotNavigation children={children} callback={setCurrentSlide} currentIndex={currentSlide} />
-      <div className='text-container'>
-        <h2>{currentChildren.name}</h2>
-        <p className='description'>{currentChildren.description}</p>
-        <Link
-          to={`/city/${currentChildren.id}`}
-        >
-          <button className="explore">Explorer <i className="fa fa-paper-plane" aria-hidden="true"/></button>
-        </Link>
-      </div>
-      <div className="slider-positioner">
-        <Swipeable
-          onSwipedLeft={displayNext}
-          onSwipedRight={displayPrevious}
-          trackMouse>
-          <div className='slider' style={{ width: `${ratio * 100}%`}}>
-            <div className='slider-container' style={{ transform: `translate3d(${translateX}%, 0, 0)`}}>
-              { slides }
-            </div>
+    <div className="slider-positioner">
+      <Swipeable
+        onSwipedLeft={displayNext}
+        onSwipedRight={displayPrevious}
+        trackMouse>
+        <div className='slider' style={{ width: `${ratio * 100}%`}}>
+          <div className='slider-container' style={{ transform: `translate3d(${translateX}%, 0, 0)`}}>
+            { slides }
           </div>
-        </Swipeable>
-      </div>
+        </div>
+      </Swipeable>
     </div>
   )
 }

@@ -2,13 +2,18 @@ import React from "react";
 import Query from "../components/Query";
 
 import CITIES_QUERY from '../queries/city/cities'
-import Cities from '../components/Cities/Cities'
+import CitySlider from '../components/Cities/CitySlider'
+import { SliderContextProvider } from '../components/Slider/SliderContext'
 
 function Home() {
   return (
     <Query query={CITIES_QUERY}>
       {({ data: { cities } }) => {
-        return <Cities cities={cities} />;
+        return (
+          <SliderContextProvider>
+            <CitySlider cities={cities} />
+          </SliderContextProvider>
+        )
       }}
     </Query>
   );

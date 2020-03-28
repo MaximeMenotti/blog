@@ -1,6 +1,6 @@
 import React from "react";
 
-function City({ city }) {
+function CityTeaser({ city }) {
   return (
     <div className='card'>
       <h3 className='title'>{city.name}</h3>
@@ -11,4 +11,4 @@ function City({ city }) {
   );
 }
 
-export default City;
+export default CityTeaser;
