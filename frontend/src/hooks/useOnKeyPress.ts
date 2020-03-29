@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 
-function useOnKeyPress(callback, keyCode) {
-  const keyPressHandler = (e) => {
-    if (e.repeat) { return }
+function useOnKeyPress(callback: Function , keyCode: number) {
+  const keyPressHandler = (e: KeyboardEvent) => {
+    if (e.repeat) {
+      return
+    }
+
     if (e.keyCode === keyCode) {
       callback()
     }

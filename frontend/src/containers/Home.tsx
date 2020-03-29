@@ -7,14 +7,16 @@ import { SliderContextProvider } from '../components/Slider/SliderContext'
 
 function Home() {
   return (
-    <Query query={CITIES_QUERY}>
-      {({ data: { cities } }) => {
-        return (
-          <SliderContextProvider>
-            <CitySlider cities={cities} />
-          </SliderContextProvider>
-        )
-      }}
+    <Query query={CITIES_QUERY} id='city-query'>
+      {
+        ({ data: { cities } }) => {
+          return (
+            <SliderContextProvider>
+              <CitySlider cities={cities} />
+            </SliderContextProvider>
+          )
+        }
+      }
     </Query>
   );
 };

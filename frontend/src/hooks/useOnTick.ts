@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function useOnTick(callback, timeout=5000) {
+function useOnTick(callback: Function, timeout: number = 5000) {
   useEffect(() => {
     const interval = setInterval(callback, timeout);
     return () => {
