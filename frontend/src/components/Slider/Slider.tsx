@@ -1,39 +1,40 @@
-import React, { useContext } from 'react'
-import { Swipeable } from 'react-swipeable'
-import useOnTick from '../../hooks/useOnTick'
-import useOnKeyPress from '../../hooks/useOnKeyPress'
-import { SliderContext } from './SliderContext'
+import React, { useContext } from 'react';
+import { Swipeable } from 'react-swipeable';
+import { v4 as uuidv4 } from 'uuid';
+import useOnTick from '../../hooks/useOnTick';
+import useOnKeyPress from '../../hooks/useOnKeyPress';
+import { SliderContext } from './SliderContext';
 
 export type SliderProps = {
   slidesToShow?: number,
   slidesToScroll?: number,
   children: React.ReactNode[]
-}
+};
 
 function Slider({
   slidesToShow = 2,
   slidesToScroll = 1,
-  children
+  children,
 }: SliderProps) {
-  const {currentIndex, setCurrentIndex} = useContext(SliderContext);
+  const { currentIndex, setCurrentIndex } = useContext(SliderContext);
 
   const ratio = children.length / slidesToShow;
-  const translateX = currentIndex * -100 / children.length;
+  const translateX = (currentIndex * (-100)) / children.length;
 
   function displayNext() {
     const newCurrentIndex = (currentIndex + slidesToScroll) % children.length;
-    setCurrentIndex(newCurrentIndex)
+    setCurrentIndex(newCurrentIndex);
   }
   function displayPrevious() {
     let newCurrentIndex = (currentIndex - slidesToScroll);
     if (newCurrentIndex < 0) {
       newCurrentIndex = children.length - slidesToScroll;
     }
-    setCurrentIndex(newCurrentIndex)
+    setCurrentIndex(newCurrentIndex);
   }
 
-  useOnKeyPress(displayNext, 39);
-  useOnKeyPress(displayPrevious, 37);
+  useOnKeyPress(displayNext, 'ArrowRight');
+  useOnKeyPress(displayPrevious, 'ArrowLeft');
   useOnTick(displayNext, 5000);
 
   const slides = children.map((child, index) => {
@@ -44,7 +45,7 @@ function Slider({
         slideClassName = 'slide active';
         break;
       case (currentIndex + slidesToScroll) % children.length:
-        if(currentIndex < (children.length - slidesToScroll)) {
+        if (currentIndex < (children.length - slidesToScroll)) {
           slideClassName = 'slide next-active';
           break;
         }
@@ -56,7 +57,7 @@ function Slider({
 
     const slideRatio = (100 / slidesToShow) / ratio;
     return (
-      <div key={index} className={slideClassName} style={{ width: `${slideRatio}%` }}>
+      <div key={uuidv4()} className={slideClassName} style={{ width: `${slideRatio}%` }}>
         {child}
       </div>
     );
@@ -67,15 +68,16 @@ function Slider({
       <Swipeable
         onSwipedLeft={displayNext}
         onSwipedRight={displayPrevious}
-        trackMouse>
-        <div className='slider' style={{ width: `${ratio * 100}%`}}>
-          <div className='slider-container' style={{ transform: `translate3d(${translateX}%, 0, 0)`}}>
+        trackMouse
+      >
+        <div className="slider" style={{ width: `${ratio * 100}%` }}>
+          <div className="slider-container" style={{ transform: `translate3d(${translateX}%, 0, 0)` }}>
             { slides }
           </div>
         </div>
       </Swipeable>
     </div>
-  )
+  );
 }
 
 export default Slider;

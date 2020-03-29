@@ -6,7 +6,7 @@ export type City = {
   id: string,
   created_at: Date,
   updated_at: Date
-}
+};
 
 export type UploadFile = {
   name: string,
@@ -21,4 +21,4 @@ export type UploadFile = {
   id: string,
   created_at: Date,
   updated_at: Date
-}
+};

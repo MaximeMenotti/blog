@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { ApolloProvider } from "react-apollo";
-import client from "./utils/apolloClient";
-import { BrowserRouter as Router } from "react-router-dom";
-import "./index.scss";
-import App from './containers/App'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ApolloProvider } from 'react-apollo';
+import { BrowserRouter as Router } from 'react-router-dom';
+import client from './utils/apolloClient';
+import './index.scss';
+import App from './containers/App';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 ReactDOM.render(
   <Router>
@@ -14,5 +14,5 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </Router>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
