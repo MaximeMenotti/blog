@@ -49,7 +49,7 @@
   opacity: 0;
   display: flex;
   justify-content: center;
-  transition: height 2s, opacity 2s;
+  transition: height 500ms, opacity 500ms;
 
   @include tablet {
     height: 400px;

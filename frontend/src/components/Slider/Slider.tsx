@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Swipeable } from 'react-swipeable';
-import { v4 as uuidv4 } from 'uuid';
 import useOnTick from '../../hooks/useOnTick';
 import useOnKeyPress from '../../hooks/useOnKeyPress';
 import { SliderContext } from './SliderContext';
@@ -35,7 +34,7 @@ function Slider({
 
   useOnKeyPress(displayNext, 'ArrowRight');
   useOnKeyPress(displayPrevious, 'ArrowLeft');
-  // useOnTick(displayNext, 5000);
+  useOnTick(displayNext, 5000);
 
   const slides = children.map((child, index) => {
     let slideClassName;
@@ -57,7 +56,8 @@ function Slider({
 
     const slideRatio = (100 / slidesToShow) / ratio;
     return (
-      <div key={uuidv4()} className={slideClassName} style={{ width: `${slideRatio}%` }}>
+      // eslint-disable-next-line react/no-array-index-key
+      <div key={index} className={slideClassName} style={{ width: `${slideRatio}%` }}>
         {child}
       </div>
     );
