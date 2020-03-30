@@ -1,0 +1,36 @@
+$moonsoon: #77737c;
+$dustyPlum: #dad1e3;
+$cloudless: #d3e1f9;
+$springShower: #a8d8f7;
+$babyBlue: #8ed2f2;
+$beauBlue: #b9d5e4;
+
+$screen-mobile: 768px;
+$screen-tablet: 768px;
+$screen-wide: 1024px;
+$screen-full-hd: 1408px;
+
+
+@mixin mobile {
+  @media (min-width: #{$screen-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$screen-tablet}) {
+    @content;
+  }
+}
+
+@mixin wide-screen {
+  @media (min-width: #{$screen-wide}) {
+    @content;
+  }
+}
+
+@mixin full-hd {
+  @media (min-width: #{$screen-full-hd}) {
+    @content;
+  }
+}

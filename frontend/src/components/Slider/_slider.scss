@@ -1,6 +1,9 @@
+@import "../../variables";
+
 .main-container {
   position: relative;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   width: 100vw;
   background: no-repeat center center fixed;
   background-size: cover;
@@ -14,11 +17,13 @@
 }
 
 .slider-positioner {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding-left: 60%;
+  @include tablet {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 60%;
+  }
 }
 
 .slider {
@@ -27,37 +32,47 @@
 
 .slider-container {
   display: flex;
-  height: 550px;
   width: 100%;
+  height: 50vh;
   align-items: center;
   transition: transform 0.5s;
   user-select: none;
+
+  @include tablet {
+    height: 550px;
+  }
 }
 
 .slide {
-  height: 400px;
+  height: 100%;
   margin: 5px 20px;
-  transition: height 0.5s, opacity 0.5s;
   opacity: 0;
+  display: flex;
+  justify-content: center;
+  transition: height 2s, opacity 2s;
 
-  &.active {
-    height: 500px;
-    opacity: 1;
+  @include tablet {
+    height: 400px;
+    display: block;
+
+    &.active {
+      height: 500px;
+    }
   }
 
-  &.next-active {
+  &.active, &.next-active {
     opacity: 1;
   }
 }
 
 .text-container {
-  position: absolute;
-  margin: 0;
-  top: 50%;
-  left: 10%;
-  width: 40%;
-  transform: translateY(-50%);
-  z-index: 1;
+  padding: 20px 10%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
   h2, .description {
     color: white;
@@ -66,19 +81,56 @@
   }
 
   h2 {
-    font-size: 8rem;
+    font-size: 3rem;
     text-transform: uppercase;
     font-weight: bold;
   }
 
   .description {
-    margin: 10px 0 0 10px;
+    margin: 10px 0;
     font-size: 1rem;
     line-height: 1.2;
   }
 
+  @include tablet {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 10%;
+    width: 40%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+
+    h2 {
+      font-size: 4.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+
+
+  }
+
+  @include full-hd {
+    h2 {
+      font-size: 7.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+  }
+
+
+
   button.explore {
-    margin: 2rem 0 0 1rem;
+    margin: 2rem 0 0;
     color: #37474f;
     transition: color 0.3s;
     transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);

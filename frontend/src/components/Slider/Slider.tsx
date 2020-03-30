@@ -12,7 +12,7 @@ export type SliderProps = {
 };
 
 function Slider({
-  slidesToShow = 2,
+  slidesToShow = 1,
   slidesToScroll = 1,
   children,
 }: SliderProps) {
@@ -35,7 +35,7 @@ function Slider({
 
   useOnKeyPress(displayNext, 'ArrowRight');
   useOnKeyPress(displayPrevious, 'ArrowLeft');
-  useOnTick(displayNext, 5000);
+  // useOnTick(displayNext, 5000);
 
   const slides = children.map((child, index) => {
     let slideClassName;

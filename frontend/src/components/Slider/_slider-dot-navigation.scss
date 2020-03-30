@@ -1,77 +1,82 @@
+@import "../../variables";
 
 $dot-width: 30px;
 $dot-color: rgba(255, 255, 255, 0.3);
 
 .nav-dots {
-  position: absolute;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin: 7% 0 0 15px;
-  height: 70%;
-  width: 40px;
+  display: none;
 
-  &::before {
+  @include tablet {
     position: absolute;
-    background: $dot-color;
-    content: "";
-    display: block;
-    height: 100%;
-    width: 4px;
-    border-radius: 2px;
-  }
-
-  .dot {
-    position: relative;
-    width: $dot-width;
-    height: $dot-width;
-    transform: scale(0.4);
-    background: rgba(233, 233, 233, 1);
-    border-radius: 50%;
-    color: transparent;
-    user-select: none;
-    line-height: $dot-width;
-    text-align: center;
-    z-index: 2;
-    transition: transform 500ms;
-    outline: none;
-    border: none;
-
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 7% 0 0 15px;
+    height: 70%;
+    width: 40px;
 
     &::before {
       position: absolute;
-      top: -15px;
-      left: -15px;
+      background: $dot-color;
       content: "";
       display: block;
-      width: $dot-width + 30px;
-      height: $dot-width + 30px;
-      background: white;
-      opacity: 0.3;
-      transform: scale(0);
-      z-index: -1;
+      height: 100%;
+      width: 4px;
+      border-radius: 2px;
+    }
+
+    .dot {
+      position: relative;
+      width: $dot-width;
+      height: $dot-width;
+      transform: scale(0.4);
+      background: rgba(233, 233, 233, 1);
       border-radius: 50%;
-      transition: opacity 500ms, transform 500ms;
-    }
+      color: transparent;
+      user-select: none;
+      line-height: $dot-width;
+      text-align: center;
+      z-index: 2;
+      transition: transform 500ms;
+      outline: none;
+      border: none;
 
-
-    &:hover {
-      cursor: pointer;
 
       &::before {
-        transform: scale(1);
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        content: "";
+        display: block;
+        width: $dot-width + 30px;
+        height: $dot-width + 30px;
+        background: white;
+        opacity: 0.3;
+        transform: scale(0);
+        z-index: -1;
+        border-radius: 50%;
+        transition: opacity 500ms, transform 500ms;
       }
-    }
 
-    &.active {
-      color: white;
-      transform: scale(1);
-      text-shadow: black 1px 0 10px;
 
-      &::before {
-        opacity: 0;
+      &:hover {
+        cursor: pointer;
+
+        &::before {
+          transform: scale(1);
+        }
+      }
+
+      &.active {
+        color: white;
+        transform: scale(1);
+        text-shadow: black 1px 0 10px;
+
+        &::before {
+          opacity: 0;
+        }
       }
     }
   }
