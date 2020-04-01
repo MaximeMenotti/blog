@@ -15,7 +15,9 @@
     "seed:yarn": "cd backend && yarn seed",
     "seed:npm": "cd backend && npm run seed",
     "build:npm": "cd backend && npm run build",
-    "build:yarn": "cd backend && yarn build"
+    "build:yarn": "cd backend && yarn build",
+    "publish:backend": "git subtree push --prefix backend heroku-backend master",
+    "publish:frontend": "git subtree push --prefix frontend heroku-frontend master"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5"
