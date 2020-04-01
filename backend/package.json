@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "my-project",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -7,33 +7,29 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "seed": "node scripts/seed.js"
+    "strapi": "strapi"
   },
   "devDependencies": {},
   "dependencies": {
-    "fs": "^0.0.1-security",
     "knex": "<0.20.0",
-    "path": "^0.12.7",
-    "rimraf": "^3.0.1",
+    "pg": "^8.0.0",
     "sqlite3": "latest",
-    "strapi": "3.0.0-beta.18.4",
-    "strapi-admin": "3.0.0-beta.18.4",
-    "strapi-connector-bookshelf": "3.0.0-beta.18.4",
-    "strapi-plugin-content-manager": "3.0.0-beta.18.4",
-    "strapi-plugin-content-type-builder": "3.0.0-beta.18.4",
-    "strapi-plugin-email": "3.0.0-beta.18.4",
-    "strapi-plugin-graphql": "3.0.0-beta.18.4",
-    "strapi-plugin-upload": "3.0.0-beta.18.4",
-    "strapi-plugin-users-permissions": "3.0.0-beta.18.4",
-    "strapi-utils": "3.0.0-beta.18.4",
-    "unzip-stream": "^0.3.0"
+    "strapi": "3.0.0-beta.19.5",
+    "strapi-admin": "3.0.0-beta.19.5",
+    "strapi-connector-bookshelf": "3.0.0-beta.19.5",
+    "strapi-plugin-content-manager": "3.0.0-beta.19.5",
+    "strapi-plugin-content-type-builder": "3.0.0-beta.19.5",
+    "strapi-plugin-email": "3.0.0-beta.19.5",
+    "strapi-plugin-graphql": "^3.0.0-beta.19.5",
+    "strapi-plugin-upload": "3.0.0-beta.19.5",
+    "strapi-plugin-users-permissions": "3.0.0-beta.19.5",
+    "strapi-utils": "3.0.0-beta.19.5"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": ""
+    "uuid": "f6500485-c52f-47fa-b476-a948593193e3"
   },
   "engines": {
     "node": ">=10.0.0",
