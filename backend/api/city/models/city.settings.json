@@ -1,4 +1,5 @@
 {
+  "kind": "collectionType",
   "connection": "default",
   "collectionName": "cities",
   "info": {
@@ -27,6 +28,9 @@
       "via": "related",
       "plugin": "upload",
       "required": true
+    },
+    "places": {
+      "collection": "places"
     }
   }
 }

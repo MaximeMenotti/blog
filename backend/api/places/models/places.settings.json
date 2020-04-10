@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "places",
+  "info": {
+    "name": "Places"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "housing",
+        "restaurant",
+        "bar",
+        "party"
+      ],
+      "required": true
+    },
+    "gps": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

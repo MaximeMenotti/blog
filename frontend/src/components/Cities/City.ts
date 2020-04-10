@@ -1,3 +1,5 @@
+import { Place } from '../Places/Place';
+
 export type City = {
   name: string,
   description?: string,
@@ -5,7 +7,8 @@ export type City = {
   teaser?: UploadFile,
   id: string,
   created_at: Date,
-  updated_at: Date
+  updated_at: Date,
+  places: Place[]
 };
 
 export type UploadFile = {

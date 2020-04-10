@@ -1,6 +1,7 @@
 @import "reset";
 @import "variables";
 @import "src/components/Cities/city-teaser";
+@import "src/components/Cities/city-page";
 @import "src/components/Slider/slider";
 @import "src/components/Slider/slider-dot-navigation";
 
@@ -11,5 +12,4 @@
 
 html, body {
   max-width: 100%;
-  overflow-x: hidden;
 }
