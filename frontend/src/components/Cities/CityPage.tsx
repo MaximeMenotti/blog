@@ -2,6 +2,7 @@ import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { City } from './City';
 import PlaceTeaser from '../Places/PlaceTeaser';
+import ScrollIcon from '../ScrollIcon/ScrollIcon';
 
 export type CityPageProps = {
   city: City,
@@ -24,6 +25,7 @@ function CityPage({ city }: CityPageProps) {
               <span className="half-city-name first">{cityNameHalfFirst}</span>
               <span className="half-city-name second">{cityNameHalfSecond}</span>
             </h1>
+            <ScrollIcon />
           </div>
         )
       }

@@ -48,6 +48,10 @@
       -webkit-background-clip: text;
     }
   }
+
+  .scroll-icon {
+    transform: translateX(-150%);
+  }
 }
 
 .city-page-main-container {
