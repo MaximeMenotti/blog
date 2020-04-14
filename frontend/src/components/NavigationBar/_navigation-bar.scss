@@ -10,6 +10,7 @@ $underline-height: 0.2rem;
   justify-content: space-between;
 
   ul {
+    font-size: 1.2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,8 +18,18 @@ $underline-height: 0.2rem;
 
     li {
       margin: 1.2rem 0;
-
       position: relative;
+
+      i.fa {
+        font-size: 2rem;
+        cursor: pointer;
+        transition: transform 0.3s ease-out;
+        text-shadow: #101622 .1rem 0 0.5rem;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
 
       a {
         color: inherit;
@@ -31,7 +42,7 @@ $underline-height: 0.2rem;
           position: absolute;
           height: $underline-height;
           width: 80%;
-          bottom: - $underline-height - 0.4rem;
+          bottom: - $underline-height;
           left: 10%;
           transform: translateY(0.3rem) scale(0.8);
           background: currentColor;
@@ -45,6 +56,10 @@ $underline-height: 0.2rem;
             width: 80%;
             transform: translateY(0) scale(1);
           }
+        }
+
+        &.bold {
+          font-weight: 600;
         }
       }
     }
