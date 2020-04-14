@@ -9,6 +9,7 @@ $screen-mobile: 768px;
 $screen-tablet: 768px;
 $screen-wide: 1024px;
 $screen-full-hd: 1408px;
+$screen-full-image-width: 1620px;
 
 
 @mixin mobile {
@@ -31,6 +32,12 @@ $screen-full-hd: 1408px;
 
 @mixin full-hd {
   @media (min-width: #{$screen-full-hd}) {
+    @content;
+  }
+}
+
+@mixin full-image-width {
+  @media (min-width: #{$screen-full-image-width}) {
     @content;
   }
 }
