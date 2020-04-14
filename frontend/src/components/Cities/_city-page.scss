@@ -1,8 +1,60 @@
 .city-page-background-container {
-  height: 40vh;
-  width: 100vw;
-  background: no-repeat center center;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: no-repeat center right;
   background-size: cover;
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: white;
+  }
+
+  h1 {
+    background-image: inherit;
+  }
+
+  h1 span {
+    color: white;
+    position: absolute;
+    font-size: 10rem;
+    font-weight: 600;
+    top: 50%;
+    transform: translateY(-50%);
+
+
+    &.first {
+      color: white;
+      right: 50%;
+      text-shadow: black 1px 0 10px;
+    }
+
+    &.second {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 50%;
+      left: 50%;
+      color: tomato;
+      background: no-repeat center right;
+      background-image: inherit;
+      background-size: cover;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+
+      &::before {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
 }
 
 .city-page-main-container {
@@ -13,13 +65,6 @@
 
   p {
     margin: 1rem 2rem;
-  }
-
-  h1 {
-    margin: 2rem 2rem;
-    font-size: 3rem;
-    font-weight: 600;
-    text-align: center;
   }
 
   .places-container {

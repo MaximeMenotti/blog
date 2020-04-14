@@ -9,6 +9,9 @@ export type CityPageProps = {
 
 function CityPage({ city }: CityPageProps) {
   console.log(city);
+  const cityNameMiddle = Math.ceil(city.name.length / 2);
+  const cityNameHalfFirst = city.name.slice(0, cityNameMiddle);
+  const cityNameHalfSecond = city.name.slice(cityNameMiddle);
   return (
     <>
       {
@@ -16,11 +19,15 @@ function CityPage({ city }: CityPageProps) {
           <div
             className="city-page-background-container"
             style={{ backgroundImage: `url(${process.env.REACT_APP_BACKEND_URL + city.background.url})` }}
-          />
+          >
+            <h1>
+              <span className="half-city-name first">{cityNameHalfFirst}</span>
+              <span className="half-city-name second">{cityNameHalfSecond}</span>
+            </h1>
+          </div>
         )
       }
       <div className="city-page-main-container">
-        <h1>{city.name}</h1>
         <p>Mais arrêtez bon sang! Non mais maintenant il faut se tirer dans l'autre sens. On dit que là où il passe l’herbe ne repousse pas!</p>
         <p>Vous savez c’est quand de même pas grave de pas savoir faire des tartes! Il s’est fait chier dessus par un bouc! S'il y a un autre qui groupe qui arrive par là on est marron des deux côtés. Ah ben non tant que vous nous obligez pas à les manger!</p>
         <p>N’empêche que tout le monde parle de moi! C’est quand même un signe! Putain en plein dans sa mouille! N’empêche que tout le monde parle de moi! C’est quand même un signe! Ah non, non! Y a pas de pécor pour la quête du Graal! Enfin… À moins ça ait changé?</p>
