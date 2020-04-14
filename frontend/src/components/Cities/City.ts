@@ -3,8 +3,8 @@ import { Place } from '../Places/Place';
 export type City = {
   name: string,
   description?: string,
-  background?: UploadFile,
-  teaser?: UploadFile,
+  background: UploadFile,
+  teaser: UploadFile,
   id: string,
   created_at: Date,
   updated_at: Date,

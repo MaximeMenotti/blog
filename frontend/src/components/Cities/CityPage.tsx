@@ -1,34 +1,35 @@
 import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { usePalette } from 'react-palette';
 import { City } from './City';
 import PlaceTeaser from '../Places/PlaceTeaser';
 import ScrollIcon from '../ScrollIcon/ScrollIcon';
+import NavigationBar from '../NavigationBar/NavigationBar';
+
 
 export type CityPageProps = {
   city: City,
 };
 
 function CityPage({ city }: CityPageProps) {
-  console.log(city);
+  const { data: colors } = usePalette(process.env.REACT_APP_BACKEND_URL + city.background.url);
+
   const cityNameMiddle = Math.ceil(city.name.length / 2);
   const cityNameHalfFirst = city.name.slice(0, cityNameMiddle);
   const cityNameHalfSecond = city.name.slice(cityNameMiddle);
   return (
     <>
-      {
-        city.background && (
-          <div
-            className="city-page-background-container"
-            style={{ backgroundImage: `url(${process.env.REACT_APP_BACKEND_URL + city.background.url})` }}
-          >
-            <h1>
-              <span className="half-city-name first">{cityNameHalfFirst}</span>
-              <span className="half-city-name second">{cityNameHalfSecond}</span>
-            </h1>
-            <ScrollIcon />
-          </div>
-        )
-      }
+      <NavigationBar colors={colors} />
+      <div
+        className="city-page-background-container"
+        style={{ backgroundImage: `url(${process.env.REACT_APP_BACKEND_URL + city.background.url})` }}
+      >
+        <h1>
+          <span className="half-city-name first">{cityNameHalfFirst}</span>
+          <span className="half-city-name second">{cityNameHalfSecond}</span>
+        </h1>
+        <ScrollIcon />
+      </div>
       <div className="city-page-main-container">
         <p>Mais arrêtez bon sang! Non mais maintenant il faut se tirer dans l'autre sens. On dit que là où il passe l’herbe ne repousse pas!</p>
         <p>Vous savez c’est quand de même pas grave de pas savoir faire des tartes! Il s’est fait chier dessus par un bouc! S'il y a un autre qui groupe qui arrive par là on est marron des deux côtés. Ah ben non tant que vous nous obligez pas à les manger!</p>
