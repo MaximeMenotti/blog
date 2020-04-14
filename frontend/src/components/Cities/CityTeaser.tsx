@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useHistory } from 'react-router';
 import { City } from './City';
 
 export type CityTeaserProps = {
@@ -6,8 +7,10 @@ export type CityTeaserProps = {
 };
 
 function CityTeaser({ city }: CityTeaserProps) {
+  const history = useHistory();
+
   return (
-    <div className="card">
+    <div role="button" tabIndex={0} className="card" onClick={() => { history.push(`/city/${city.id}`); }} onKeyPress={() => {}}>
       <h3 className="title">{city.name}</h3>
       <div className="image-container">
         {

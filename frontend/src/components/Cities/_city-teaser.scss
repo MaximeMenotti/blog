@@ -6,6 +6,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  user-select: none;
+  &:focus { outline: 0; }
+  cursor: pointer;
 
   .title, .description {
     font-size: 1.4rem;
