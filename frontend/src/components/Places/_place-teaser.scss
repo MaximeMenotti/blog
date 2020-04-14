@@ -1,0 +1,34 @@
+.place-teaser {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0.25rem 0.5rem #aaaaaa;
+  margin: 2rem;
+  padding: 2rem;
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    background: linear-gradient(#fff, transparent);
+    width: 100%;
+    height: 40px;
+    bottom: 160px;
+    left: 0;
+    z-index: 2;
+  }
+
+  h3 {
+    font-size: 1.6em;
+    font-weight: 600;
+  }
+
+  img {
+    position: absolute;
+    width: 150%;
+    bottom: -25px;
+    left: 0;
+  }
+}

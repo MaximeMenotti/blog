@@ -27,10 +27,17 @@ function CityPage({ city }: CityPageProps) {
         <p>Bon alors en garde, fils d’unijambiste. C’est meilleur chaud, hein. Seulement là aux cuisines ils sont sur le repas du soir. Hein, ils ont pas trop le temps. Mais Attila vous y attend, Sire! Attila! Le Fléau de Dieu! C’est la salle du trône. Il ferait beau voir que je puisse pas y rentrer!</p>
         <p>Mais vous êtes complètement con? Mais on en entend parler dans les tavernes à ivrognes! Voilà! C’est quand même pas de bol pour lui, hein. Parce que les rares fois où il arrive à faire quelque chose de ses dix doigts, il se goure quand on lui demande son nom.</p>
         {
-          city.places.map(
-            (place) => (
-              <PlaceTeaser place={place} key={uuidv4()} />
-            ),
+          city.places
+          && (
+            <div className="places-container">
+              {
+                city.places.map(
+                  (place) => (
+                    <PlaceTeaser place={place} key={uuidv4()} />
+                  ),
+                )
+              }
+            </div>
           )
         }
       </div>

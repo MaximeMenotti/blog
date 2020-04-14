@@ -18,9 +18,6 @@ function PlaceTeaser({ place }: PlaceTeaserProps) {
   return (
     <div className="place-teaser">
       <h3 className="title">{place.title}</h3>
-      <div className="image-container">
-        test
-      </div>
       <img
         src={imgUrl}
         alt="map"

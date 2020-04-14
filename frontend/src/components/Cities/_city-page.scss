@@ -6,25 +6,25 @@
 }
 
 .city-page-main-container {
-  position: absolute;
-  top: 45vh;
-  max-width: 1080px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+  top: 30vh;
+  max-width: 1408px;
   background: white;
-  box-shadow: 0 0.25rem 0.5rem #aaaaaa;
-  padding: 2rem;
-  border-radius: 20px;
+  box-sizing: border-box;
 
   p {
-    margin: 1rem 0;
+    margin: 1rem 2rem;
   }
 
   h1 {
+    margin: 2rem 2rem;
     font-size: 3rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 2rem;
+  }
+
+  .places-container {
+    display: flex;
   }
 }
+
+
