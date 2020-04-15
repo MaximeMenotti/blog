@@ -7,6 +7,7 @@ import SliderDotNavigation from '../Slider/SliderDotNavigation';
 import Slider from '../Slider/Slider';
 import { SliderContext } from '../Slider/SliderContext';
 import useDevice from '../../hooks/useDevive';
+import ReactMarkdown from "react-markdown";
 
 export type CitySliderProps = {
   cities: City[],
@@ -38,7 +39,7 @@ function CitySlider(
       <Slider slidesToShow={device === 'mobile' ? 1 : 2}>{cityTeasers}</Slider>
       <div className="text-container">
         <h2>{currentCity.name}</h2>
-        <p className="description">{currentCity.description}</p>
+        <ReactMarkdown className="description" source={currentCity.description} />
         <Link to={`/city/${currentCity.id}`}>
           <button className="explore" type="button">
             Explorer
