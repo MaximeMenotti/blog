@@ -1,13 +1,13 @@
-import { Place } from '../Places/Place';
 import { UploadFile } from '../UploadFile';
+import { UnmissableSectionType } from '../Unmissables/UnmissableSection';
 
 export type City = {
+  id: string,
   name: string,
   description?: string,
   background: UploadFile,
   teaser: UploadFile,
-  id: string,
+  unmissableList: [UnmissableSectionType]
   created_at: Date,
   updated_at: Date,
-  places: Place[]
 };

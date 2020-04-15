@@ -1,37 +1,36 @@
 {
   "kind": "collectionType",
   "connection": "default",
-  "collectionName": "places",
+  "collectionName": "unmissables",
   "info": {
-    "name": "Places"
+    "name": "unmissable"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "description": {
-      "type": "richtext"
-    },
     "title": {
       "type": "string",
       "required": true
     },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
     "type": {
       "type": "enumeration",
       "enum": [
-        "housing",
-        "restaurant",
-        "bar",
-        "party"
+        "food",
+        "drink",
+        "party",
+        "visit",
+        "housing"
       ],
-      "required": true
+      "required": true,
+      "default": "food"
     },
-    "gps": {
-      "type": "string",
-      "required": true
-    },
-    "teaserImage": {
+    "teaser": {
       "model": "file",
       "via": "related",
       "plugin": "upload",

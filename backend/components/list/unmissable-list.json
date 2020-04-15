@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "components_list_unmissable_lists",
+  "info": {
+    "name": "unmissable-list",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "unmissables": {
+      "collection": "unmissable"
+    }
+  }
+}

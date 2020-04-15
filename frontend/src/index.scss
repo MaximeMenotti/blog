@@ -3,7 +3,8 @@
 @import "src/components/Cities/city-teaser";
 @import "src/components/Cities/city-page";
 @import "src/components/NavigationBar/navigation-bar";
-@import "src/components/Places/place-teaser";
+@import "src/components/Unmissables/unmissable-teaser";
+@import "src/components/Unmissables/unmissable-section";
 @import "src/components/Slider/slider";
 @import "src/components/Slider/slider-dot-navigation";
 @import "src/components/ScrollIcon/scroll-icon";
@@ -15,6 +16,7 @@
 
 html, body {
   max-width: 100%;
+  line-height: 1.4rem;
 }
 
 strong {

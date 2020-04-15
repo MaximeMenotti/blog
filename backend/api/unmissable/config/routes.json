@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/places",
-      "handler": "places.find",
+      "path": "/unmissables",
+      "handler": "unmissable.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/places/count",
-      "handler": "places.count",
+      "path": "/unmissables/count",
+      "handler": "unmissable.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/places/:id",
-      "handler": "places.findOne",
+      "path": "/unmissables/:id",
+      "handler": "unmissable.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/places",
-      "handler": "places.create",
+      "path": "/unmissables",
+      "handler": "unmissable.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/places/:id",
-      "handler": "places.update",
+      "path": "/unmissables/:id",
+      "handler": "unmissable.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/places/:id",
-      "handler": "places.delete",
+      "path": "/unmissables/:id",
+      "handler": "unmissable.delete",
       "config": {
         "policies": []
       }

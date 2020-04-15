@@ -1,6 +1,6 @@
 $animation-time: 0.1s;
 
-.place-teaser {
+.unmissable-teaser {
   position: relative;
   width: 33%;
   height: 20rem;
@@ -42,11 +42,11 @@ $animation-time: 0.1s;
     font-size: 10rem;
   }
 
-  .half-place-title {
+  .half-unmissable-title {
     color: white;
     position: absolute;
-    z-index: 2;
-    font-size: 2em;
+    font-size: 3em;
+    font-weight: bold;
     margin: 0 auto;
     top: 50%;
     transform: translateY(-50%);

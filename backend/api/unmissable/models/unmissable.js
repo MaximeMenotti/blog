@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `places` model.
+ * Lifecycle callbacks for the `unmissable` model.
  */
 
 module.exports = {

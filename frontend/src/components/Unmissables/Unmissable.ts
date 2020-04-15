@@ -1,12 +1,11 @@
 import { UploadFile } from '../UploadFile';
 
-export type Place = {
+export type Unmissable = {
   id: string,
   created_at: Date,
   updated_at: Date,
-  description?: string,
   title: string,
-  gps: string,
+  description?: string,
   type: string,
-  teaserImage: UploadFile
+  teaser: UploadFile
 };

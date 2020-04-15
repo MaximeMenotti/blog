@@ -29,8 +29,10 @@
       "plugin": "upload",
       "required": true
     },
-    "places": {
-      "collection": "places"
+    "unmissableList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.unmissable-list"
     }
   }
 }
