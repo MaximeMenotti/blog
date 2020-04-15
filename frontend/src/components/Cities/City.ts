@@ -1,4 +1,5 @@
 import { Place } from '../Places/Place';
+import { UploadFile } from '../UploadFile';
 
 export type City = {
   name: string,
@@ -9,19 +10,4 @@ export type City = {
   created_at: Date,
   updated_at: Date,
   places: Place[]
-};
-
-export type UploadFile = {
-  name: string,
-  hash: string,
-  sha256?: string,
-  ext?: string,
-  mime: string,
-  size: number
-  url: string,
-  provider: string,
-  provider_metadata?: JSON,
-  id: string,
-  created_at: Date,
-  updated_at: Date
 };

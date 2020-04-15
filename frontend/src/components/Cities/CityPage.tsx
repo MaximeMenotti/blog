@@ -6,6 +6,7 @@ import { City } from './City';
 import PlaceTeaser from '../Places/PlaceTeaser';
 import ScrollIcon from '../ScrollIcon/ScrollIcon';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import halfSplit from '../../helpers/strings';
 
 
 export type CityPageProps = {
@@ -15,9 +16,7 @@ export type CityPageProps = {
 function CityPage({ city }: CityPageProps) {
   const { data: colors } = usePalette(process.env.REACT_APP_BACKEND_URL + city.background.url);
 
-  const cityNameMiddle = Math.ceil(city.name.length / 2);
-  const cityNameHalfFirst = city.name.slice(0, cityNameMiddle);
-  const cityNameHalfSecond = city.name.slice(cityNameMiddle);
+  const { first: cityNameHalfFirst, second: cityNameHalfSecond } = halfSplit(city.name);
   return (
     <>
       <NavigationBar colors={colors} />

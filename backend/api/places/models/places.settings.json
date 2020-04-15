@@ -30,6 +30,12 @@
     "gps": {
       "type": "string",
       "required": true
+    },
+    "teaserImage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
     }
   }
 }

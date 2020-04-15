@@ -20,6 +20,9 @@ const CITY_QUERY = gql`
         title
         gps
         type
+        teaserImage {
+          url
+        }
       }
     }
   }

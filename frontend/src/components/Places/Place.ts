@@ -1,3 +1,5 @@
+import { UploadFile } from '../UploadFile';
+
 export type Place = {
   id: string,
   created_at: Date,
@@ -6,4 +8,5 @@ export type Place = {
   title: string,
   gps: string,
   type: string,
+  teaserImage: UploadFile
 };
