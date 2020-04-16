@@ -30,7 +30,10 @@ function CityPage({ city }: CityPageProps) {
         <ScrollIcon />
       </div>
       <div className="city-page-main-container">
-        <ReactMarkdown className="description" source={city.description} />
+        {
+          city.description
+          && <ReactMarkdown className="city-description" source={city.description} />
+        }
         {
           city.unmissableList
           && (

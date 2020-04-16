@@ -19,7 +19,10 @@ function UnmissableSection({ unmissableSection }: UnmissableSectionProps) {
   return (
     <>
       <h2 className="unmissable-title">{unmissableSection.title}</h2>
-      <ReactMarkdown className="description" source={unmissableSection.description} />
+      {
+        unmissableSection.description && unmissableSection.description !== ''
+        && <ReactMarkdown className="unmissable-description" source={unmissableSection.description} />
+      }
 
       <div className="unmissables-container">
         {
