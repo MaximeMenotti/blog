@@ -1,7 +1,5 @@
 import * as React from 'react';
 import CITIES_QUERY from '../../queries/city/cities';
-import { SliderContextProvider } from '../Slider/SliderContext';
-import CitySlider from '../Cities/CitySlider';
 import Query from '../Query';
 import { City } from '../Cities/City';
 

@@ -16,6 +16,16 @@ $underline-height: 0.2rem;
     justify-content: space-between;
     margin: 0 1rem;
 
+    &.right {
+      li {
+        display: none;
+
+        @include wide-screen {
+          display: block;
+        }
+      }
+    }
+
     li {
       margin: 1.2rem 0;
       position: relative;
