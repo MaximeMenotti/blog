@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .unmissable-title {
   font-weight: bold;
   font-size: 3rem;
@@ -12,4 +14,10 @@
 .unmissables-container {
   display: flex;
   flex-wrap: wrap;
+
+  margin-right: 2rem;
+
+  @include wide-screen {
+    flex-wrap: nowrap;
+  }
 }
