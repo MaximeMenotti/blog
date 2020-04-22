@@ -27,7 +27,7 @@ function UnmissableSection({ unmissableSection }: UnmissableSectionProps) {
       <div className="unmissables-container">
         {
           unmissableSection.unmissables.map(
-            (unmissable) => <UnmissableTeaser unmissable={unmissable} key={uuidv4()} />,
+            (unmissable, index) => <UnmissableTeaser unmissable={unmissable} index={index} key={uuidv4()} />,
           )
         }
       </div>

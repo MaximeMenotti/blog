@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import ScrollReveal from 'scrollreveal';
 import { Unmissable } from './Unmissable';
 import halfSplit from '../../helpers/strings';
 
 
 export type PlaceTeaserProps = {
   unmissable: Unmissable
+  index?: number
 };
 
-function UnmissableTeaser({ unmissable }: PlaceTeaserProps) {
+function UnmissableTeaser({ unmissable, index = 0 }: PlaceTeaserProps) {
   const [active, setActive] = useState(false);
+  const divContainer = useRef(null);
   const {
     first: unmissableTitleSplitFirst,
     second: unmissableTitleSplitSecond,
@@ -34,8 +37,25 @@ function UnmissableTeaser({ unmissable }: PlaceTeaserProps) {
       iconClassName = 'title-icon fas fa-utensils';
   }
 
+  useEffect(() => {
+    const config = {
+      opacity: 0,
+      duration: 300,
+      delay: 150 * index,
+      distance: '0px',
+      scale: 0.9,
+      easing: 'ease-in-out',
+      reset: true,
+    };
+
+    // @ts-ignore
+    ScrollReveal().reveal(divContainer.current, config);
+  });
+
+
   return (
     <div
+      ref={divContainer}
       className={`unmissable-teaser ${active ? ' active' : ''}`}
       onClick={() => {
         if (!active) {

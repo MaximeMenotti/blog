@@ -11,6 +11,9 @@ function CityTeaser({ city }: CityTeaserProps) {
 
   return (
     <div role="button" tabIndex={0} className="card" onClick={() => { history.push(`/city/${city.id}`); }} onKeyPress={() => {}}>
+      <div className="preload">
+        <img src={process.env.REACT_APP_BACKEND_URL + city.background.url} alt="preload hidden" />
+      </div>
       <h3 className="title">{city.name}</h3>
       <div className="image-container">
         {
