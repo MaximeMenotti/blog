@@ -8,7 +8,6 @@ $animation-time: 0.4s;
   transition: all $animation-time ease-out $animation-time;
   overflow: hidden;
   margin: 1rem 0;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 
   &:not(.active) {
     cursor: pointer;
@@ -46,7 +45,6 @@ $animation-time: 0.4s;
       font-size: 2rem;
       transition: transform $hover-animation-time ease-out, opacity $animation-time ease-out 0s;
       cursor: pointer;
-      -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 
       &:focus {
         outline: none;

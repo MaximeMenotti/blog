@@ -40,7 +40,6 @@ function UnmissableTeaser({ unmissable, index = 0 }: PlaceTeaserProps) {
       distance: '0px',
       scale: 0.9,
       easing: 'ease-in-out',
-      reset: true,
     };
 
     // @ts-ignore
@@ -52,18 +51,18 @@ function UnmissableTeaser({ unmissable, index = 0 }: PlaceTeaserProps) {
     <div
       ref={divContainer}
       className={`unmissable-teaser ${active ? ' active' : ''}`}
-      onClick={() => {
-        if (!active) {
-          setActive(true);
-        }
-      }}
-      role="button"
-      tabIndex={0}
-      onKeyPress={() => {}}
     >
       <div
         className="unmissable-teaser-background"
         style={{ backgroundImage: `url(${process.env.REACT_APP_BACKEND_URL + unmissable.teaser.url})` }}
+        onClick={() => {
+          if (!active) {
+            setActive(true);
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        onKeyPress={() => {}}
       >
         <div
           role="button"
