@@ -80,8 +80,8 @@ function UnmissableTeaser({ unmissable, index = 0 }: PlaceTeaserProps) {
           <i className="fas fa-times" />
         </div>
         <i className={iconClassName} />
-        <span className="half-unmissable-title first">{unmissableTitleSplitFirst}</span>
-        <span className="half-unmissable-title second">{unmissableTitleSplitSecond}</span>
+        <span className="half-unmissable-title first">{unmissable.title}</span>
+        <span className="half-unmissable-title second">{unmissable.title}</span>
       </div>
       {
         unmissable.description && unmissable.description !== ''

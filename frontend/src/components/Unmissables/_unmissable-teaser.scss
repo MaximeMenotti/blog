@@ -90,40 +90,45 @@ $animation-time: 0.4s;
   }
 
   .half-unmissable-title {
+    font-family: 'Inconsolata', monospace;
     color: white;
     position: absolute;
-    font-size: 2.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 3em;
     font-weight: bold;
     margin: 0 auto;
     top: 50%;
-    white-space: pre-wrap;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     user-select: none;
+    text-align: center;
+    line-height: 2.6rem;
+    white-space: pre-wrap;
 
     @include wide-screen {
       font-size: 3em;
+      line-height: 3.2rem;
     }
 
     &.first {
-      color: white;
-      right: 50%;
       text-shadow: black 0.1rem 0 0.5rem;
     }
 
     &.second {
       z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       height: 100%;
       width: 100%;
-      text-indent: 50%;
       color: black;
       background: no-repeat center center;
       background-image: inherit;
       background-size: cover;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
+      clip-path: inset(0 0 0 50%);
     }
   }
 }
