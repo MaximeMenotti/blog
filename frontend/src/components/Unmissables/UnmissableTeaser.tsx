@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import ScrollReveal from 'scrollreveal';
 import { Unmissable } from './Unmissable';
-import halfSplit from '../../helpers/strings';
 
 
 export type PlaceTeaserProps = {
@@ -13,10 +12,6 @@ export type PlaceTeaserProps = {
 function UnmissableTeaser({ unmissable, index = 0 }: PlaceTeaserProps) {
   const [active, setActive] = useState(false);
   const divContainer = useRef(null);
-  const {
-    first: unmissableTitleSplitFirst,
-    second: unmissableTitleSplitSecond,
-  } = halfSplit(unmissable.title);
 
   let iconClassName;
 
